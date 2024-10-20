@@ -60,14 +60,14 @@ if ($stmtMonth = $conn->prepare($sqlMonth)) {
 }
 
 
-$sqlCourses = "SELECT curso, COUNT(*) AS student_count FROM estudiantes GROUP BY curso";
+$sqlCourses = "SELECT carrera, COUNT(*) AS student_count FROM estudiantes GROUP BY carrera";
 if ($stmtCourses = $conn->prepare($sqlCourses)) {
     $stmtCourses->execute();
     $resultCourses = $stmtCourses->get_result();
     $coursesData = [];
     while ($rowCourses = $resultCourses->fetch_assoc()) {
         $coursesData[] = [
-            'category' => $rowCourses['curso'],
+            'category' => $rowCourses['carrera'],
             'count' => $rowCourses['student_count']
         ];
     }

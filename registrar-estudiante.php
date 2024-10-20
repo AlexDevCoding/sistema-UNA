@@ -9,11 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST['cedula'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $curso = $_POST['curso'];
+    $carrera = $_POST['carrera'];
     $telefono = $_POST['telefono'];
     $fecha = $_POST['fecha'];
 
-    if (empty($cedula) || empty($nombre) || empty($apellido) || empty($curso) || empty($telefono) || empty($fecha)) {
+    if (empty($cedula) || empty($nombre) || empty($apellido) || empty($carrera) || empty($telefono) || empty($fecha)) {
         echo json_encode($response);
         exit;
     }
@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt_verificar_cedula->num_rows > 0) {
         echo json_encode($response);
     } else {
-        $sql = "INSERT INTO estudiantes (cedula, nombre, apellido, curso, telefono, fecha_ingreso) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO estudiantes (cedula, nombre, apellido, carrera, telefono, fecha_ingreso) VALUES (?, ?, ?, ?, ?, ?)";
         
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("ssssss", $cedula, $nombre, $apellido, $curso, $telefono, $fecha);
+            $stmt->bind_param("ssssss", $cedula, $nombre, $apellido, $carrera, $telefono, $fecha);
 
             if ($stmt->execute()) {
                 $response["success"] = true;

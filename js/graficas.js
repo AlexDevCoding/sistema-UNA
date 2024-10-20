@@ -8,16 +8,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
      
-            var cursos = data.cursos;
-            var cursoKeys = Object.keys(cursos);
-            var cursoValues = Object.values(cursos);
+            var carreras = data.carreras;
+            var carreraKeys = Object.keys(carreras);
+            var carreraValues = Object.values(carreras);
 
 
             var chartContainer = document.getElementById('container');
             var chart = echarts.init(chartContainer, 'dark');
+            
             var option = {
                 title: {
-                    text: 'Número de Estudiantes por Curso',
+                    text: 'Número de Estudiantes por Carrera',
                     textStyle: {
                         color: 'rgb(174, 185, 225)'
                     },
@@ -35,9 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 xAxis: {
                     type: 'category',
-                    data: cursoKeys,
+                    data: carreraKeys,
                     axisLabel: {
-                        color: 'rgb(174, 185, 225)'
+                        color: 'rgb(174, 185, 225)',
+                        interval: 0 // Muestra todas las etiquetas sin omitir ninguna
                     }
                 },
                 yAxis: {
@@ -50,14 +52,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     {
                         name: 'Número de Estudiantes',
                         type: 'bar',
-                        data: cursoValues,
+                        data: carreraValues,
                         itemStyle: {
                             color: '#61a0a8'
-                        }
+                        },
+                        barWidth: '20%', // Ajusta el ancho de las barras para que quepan más
+                        barGap: '5%', // Espacio entre las barras
                     }
                 ]
             };
+            
+            // Establecer la opción del gráfico
             chart.setOption(option);
+            
 
             var fechas = data.fechas;
 
@@ -119,16 +126,16 @@ document.addEventListener('DOMContentLoaded', function () {
             chart2.setOption(option2);
 
      
-            var graficoCursos = data.graficoCursos;
-            var pieKeys = graficoCursos.categories;
-            var pieValues = graficoCursos.data;
+            var graficocarreras = data.graficocarreras;
+            var pieKeys = graficocarreras.categories;
+            var pieValues = graficocarreras.data;
 
          
             var chartContainer3 = document.getElementById('courses-chart');
             var chart3 = echarts.init(chartContainer3, 'dark');
             var option3 = {
                 title: {
-                    text: 'Distribución de Estudiantes por Curso',
+                    text: 'Distribución de Estudiantes por Carrera',
                     textStyle: {
                         color: 'rgb(174, 185, 225)'
                     },

@@ -68,7 +68,7 @@ function renderCourseChart(data) {
 
     const option = {
         title: {
-            text: 'Categorías de Cursos',
+            text: 'Estudiantes Por Carrera',
             left: 'center',
             top: 10,
             textStyle: {
@@ -90,7 +90,7 @@ function renderCourseChart(data) {
         },
         series: [
             {
-                name: 'Categorías de Cursos',
+                name: 'Categorías de carreras',
                 type: 'pie',
                 radius: '50%',
                 data: data.course_categories.map(category => ({

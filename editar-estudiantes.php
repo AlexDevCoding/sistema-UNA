@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $cedula = $_POST['cedula'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
-    $curso = $_POST['curso'];
+    $carrera = $_POST['carrera'];
     $telefono = $_POST['telefono'];
     $fecha_ingreso = $_POST['fecha_ingreso'];
 
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
                 $currentData['cedula'] === $cedula &&
                 $currentData['nombre'] === $nombre &&
                 $currentData['apellido'] === $apellido &&
-                $currentData['curso'] === $curso &&
+                $currentData['carrera'] === $carrera &&
                 $currentData['telefono'] === $telefono &&
                 $currentData['fecha_ingreso'] === $fecha_ingreso
             ) {
@@ -66,9 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
                 $response['message'] = 'No se han realizado cambios en los datos';
             } else {
        
-                $sql = "UPDATE estudiantes SET cedula = ?, nombre = ?, apellido = ?, curso = ?, telefono = ?, fecha_ingreso = ? WHERE id = ?";
+                $sql = "UPDATE estudiantes SET cedula = ?, nombre = ?, apellido = ?, carrera = ?, telefono = ?, fecha_ingreso = ? WHERE id = ?";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ssssisi", $cedula, $nombre, $apellido, $curso, $telefono, $fecha_ingreso, $id);
+                $stmt->bind_param("ssssisi", $cedula, $nombre, $apellido, $carrera, $telefono, $fecha_ingreso, $id);
                 
                 if ($stmt->execute()) {
                     $response['success'] = true;

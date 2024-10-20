@@ -21,7 +21,7 @@ async function loadStudentData(studentId) {
 }
 
 function populateForm(student) {
-    const fields = ['id', 'cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'curso'];
+    const fields = ['id', 'cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'carrera'];
     fields.forEach(field => {
         document.getElementById(field === 'id' ? 'studentId' : field).value = student[field];
     });
@@ -29,7 +29,7 @@ function populateForm(student) {
 
 function storeOriginalData(student) {
     const originalData = document.getElementById('originalData');
-    ['cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'curso'].forEach(field => {
+    ['cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'carrera'].forEach(field => {
         originalData.dataset[`original${field.charAt(0).toUpperCase() + field.slice(1)}`] = student[field];
     });
 }
@@ -64,7 +64,7 @@ document.getElementById('editForm').addEventListener('submit', async function(ev
 
 function hasChanges() {
     const originalData = document.getElementById('originalData').dataset;
-    const fields = ['cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'curso'];
+    const fields = ['cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'carrera'];
     return fields.some(field => 
         document.getElementById(field).value !== originalData[`original${field.charAt(0).toUpperCase() + field.slice(1)}`]
     );

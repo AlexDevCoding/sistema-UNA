@@ -3,25 +3,25 @@ header('Content-Type: application/json');
 
 include 'config.php';
 
-$cursos = [];
+$carreras = [];
 $fechas = [];
-$graficoCursos = ['categories' => [], 'data' => []];
+$graficocarreras = ['categories' => [], 'data' => []];
 $totalEstudiantes = [];
 $resultData = []; 
 
 try {
 
-    $sqlCursos = "SELECT curso, COUNT(*) as total FROM estudiantes GROUP BY curso";
-    $resultCursos = $conn->query($sqlCursos);
+    $sqlcarreras = "SELECT carrera, COUNT(*) as total FROM estudiantes GROUP BY carrera";
+    $resultcarreras = $conn->query($sqlcarreras);
 
-    if (!$resultCursos) {
-        throw new Exception("Error en la consulta de cursos: " . $conn->error);
+    if (!$resultcarreras) {
+        throw new Exception("Error en la consulta de carreras: " . $conn->error);
     }
 
-    while ($row = $resultCursos->fetch_assoc()) {
-        $cursos[$row['curso']] = $row['total'];
-        $graficoCursos['categories'][] = $row['curso'];
-        $graficoCursos['data'][] = (int)$row['total'];
+    while ($row = $resultcarreras->fetch_assoc()) {
+        $carreras[$row['carrera']] = $row['total'];
+        $graficocarreras['categories'][] = $row['carrera'];
+        $graficocarreras['data'][] = (int)$row['total'];
     }
 
 
@@ -118,9 +118,9 @@ try {
 $conn->close();
 
 echo json_encode([
-    "cursos" => $cursos,
+    "carreras" => $carreras,
     "fechas" => $fechas,
-    "graficoCursos" => $graficoCursos,
+    "graficocarreras" => $graficocarreras,
     "totalEstudiantes" => $totalEstudiantes,
     "students_this_month" => $resultData['students_this_month'],
     "students_this_week" => $resultData['students_this_week'],

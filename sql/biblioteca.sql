@@ -13,7 +13,7 @@ CREATE TABLE estudiantes (
     cedula INT(8) NOT NULL,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
-    curso VARCHAR(100) NOT NULL,
+    carrera VARCHAR(100) NOT NULL,
     telefono int(11) NOT NULL,
     fecha_ingreso  datetime NOT NULL
 

@@ -100,7 +100,7 @@ nav {
     padding: 10px 20px;
     margin: 0 5px;
     border-radius: 5px; 
-    cursor: pointer;
+    carrerar: pointer;
     font-size: 16px;
 }
 
@@ -177,7 +177,7 @@ section {
 }
 
 .edit, .delete {
-    cursor: pointer;
+    carrerar: pointer;
     border-radius: 0px;
     padding: 5px;
     width: auto;
@@ -207,7 +207,7 @@ section {
 }
 
 .boton-enlace {
-    cursor: pointer;
+    carrerar: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -329,7 +329,7 @@ input[type=tel] {
 .cerrar:focus {
     color: white;
     text-decoration: none;
-    cursor: pointer;
+    carrerar: pointer;
     
 }
 
@@ -406,7 +406,7 @@ input {
     color: #888;
 }
 
-#curso {
+#carrera {
     background: rgb(8 16 40); 
     color: #888; 
     border: 1px solid rgb(52, 59, 79);

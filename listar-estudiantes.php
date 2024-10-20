@@ -2,9 +2,9 @@
 include 'config.php';
 
 function getPaginatedStudents($conn, $search, $limit, $offset) {
-    $query = "SELECT id, cedula, nombre, apellido, curso, telefono, fecha_ingreso 
+    $query = "SELECT id, cedula, nombre, apellido, carrera, telefono, fecha_ingreso 
               FROM estudiantes 
-              WHERE nombre LIKE ? OR apellido LIKE ? OR cedula LIKE ? OR curso LIKE ?
+              WHERE nombre LIKE ? OR apellido LIKE ? OR cedula LIKE ? OR carrera LIKE ?
               LIMIT ? OFFSET ?";
     
     if ($stmt = $conn->prepare($query)) {
@@ -30,7 +30,7 @@ function getPaginatedStudents($conn, $search, $limit, $offset) {
 function getTotalPages($conn, $search, $limit) {
     $query = "SELECT COUNT(*) as total 
               FROM estudiantes 
-              WHERE nombre LIKE ? OR apellido LIKE ? OR cedula LIKE ? OR curso LIKE ?";
+              WHERE nombre LIKE ? OR apellido LIKE ? OR cedula LIKE ? OR carrera LIKE ?";
     
     if ($stmt = $conn->prepare($query)) {
         $search_param = "%$search%";

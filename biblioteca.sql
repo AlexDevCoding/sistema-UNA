@@ -32,7 +32,7 @@ CREATE TABLE `estudiantes` (
   `cedula` int(8) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
-  `curso` varchar(100) NOT NULL,
+  `carrera` varchar(100) NOT NULL,
   `telefono` varchar(20) NOT NULL,
   `fecha_ingreso` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -41,7 +41,7 @@ CREATE TABLE `estudiantes` (
 -- Volcado de datos para la tabla `estudiantes`
 --
 
-INSERT INTO `estudiantes` (`id`, `cedula`, `nombre`, `apellido`, `curso`, `telefono`, `fecha_ingreso`) VALUES
+INSERT INTO `estudiantes` (`id`, `cedula`, `nombre`, `apellido`, `carrera`, `telefono`, `fecha_ingreso`) VALUES
 (7, 12572657, 'Carlos', 'Ramirez', 'Canvas', '04244669982', '2024-03-05'),
 (8, 12572658, 'Sofia', 'Castillo', 'Ofimática', '04244669983', '2024-03-15'),
 (9, 12572659, 'Pedro', 'Vargas', 'PowerPoint', '04244669984', '2024-03-25'),

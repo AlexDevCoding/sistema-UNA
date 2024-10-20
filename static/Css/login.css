@@ -9,7 +9,7 @@
 
 body {
     font-family: "Roboto", sans-serif;
-    background-image: url(../img/WhatsApp\ Image\ 2024-08-22\ at\ 1.28.58\ PM.jpeg);
+    background-image: url(../img/2024-06-04.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
@@ -136,7 +136,7 @@ a {
 .close:focus {
     color: white;
     text-decoration: none;
-    cursor: pointer;
+    carrerar: pointer;
 }
 
 .modal-icono {

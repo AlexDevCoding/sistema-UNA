@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <th>Cédula</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
-                                    <th>Curso</th>
+                                    <th>Carrera</th>
                                     <th>Número de Teléfono</th>
                                     <th>Fecha de Ingreso</th>
                                     <th class="accion">Acción</th>
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <td>${row.cedula}</td>
                                 <td>${row.nombre}</td>
                                 <td>${row.apellido}</td>
-                                <td>${row.curso}</td>
+                                <td>${row.carrera}</td>
                                 <td>${row.telefono}</td>
                                 <td>${row.fecha_ingreso}</td>
                                 <td class="activo">
