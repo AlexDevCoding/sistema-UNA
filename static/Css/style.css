@@ -177,7 +177,7 @@ section {
 }
 
 .edit, .delete {
-    carrerar: pointer;
+    cursor: pointer;
     border-radius: 0px;
     padding: 5px;
     width: auto;
@@ -359,7 +359,36 @@ input[type=tel] {
     position: relative;
     display: flex;
     align-items: center;
+    gap: 30%;
 }
+
+.calificaciones {
+    padding: 15px 4px 15px 4px;
+    width: 10%;
+    border: 0;
+    border-radius: 10px;
+    background-color: #2ba8fb;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    text-align: center;
+    font-size: 16px;
+}
+
+.calificaciones:hover {
+    background-color: #6fc5ff;
+
+}
+
+.calificaciones:active {
+    background-color: #3d94cf;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
+}
+
 
 .search-container .buscar {
     padding-left: 35px; 
@@ -579,7 +608,8 @@ input[type="submit"]:hover {
     border-radius: 5px;
     color: white;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 14px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .btn-generar:hover {
@@ -598,3 +628,4 @@ input[type="submit"]:hover {
   
 }
 
+asdas

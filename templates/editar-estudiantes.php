@@ -1,3 +1,7 @@
+<?php
+    include('../auth/autenticación.php')
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,15 +21,15 @@
         </div>
         <nav>
             <ul>
-                <a class="boton-enlace" id="añadir-estudiantes-link" href="agregar-estudiantes.html">Añadir estudiantes</a>
-                <li class="t"><a href="index.html" id="tablero-link"><i class="ti ti-layout-dashboard"></i>Tablero</a></li>
-                <li class="t"><a href="estudiantes.html" id="estudiantes-link"><i class="ti ti-users"></i>Estudiantes</a></li>
-                <li class="t"><a href="calificaciones.html" id="calificaciones-link"><i class="ti ti-certificate"></i>Calificaciones</a></li>
+                <a class="boton-enlace" id="añadir-estudiantes-link" href="agregar-estudiantes.php">Añadir estudiantes</a>
+                <li class="t"><a href="index.php" id="tablero-link"><i class="ti ti-layout-dashboard"></i>Tablero</a></li>
+                <li class="t"><a href="estudiantes.php" id="estudiantes-link"><i class="ti ti-users"></i>Estudiantes</a></li>
+                <li class="t"><a href="calificaciones.php" id="calificaciones-link"><i class="ti ti-certificate"></i>Calificaciones</a></li>
             </ul>
             <ul class="submenu">
-                <li class="t"><a href="estadisticas.html" id="estadisticas-link"><i class="ti ti-chart-bar-popular"></i>Estadísticas</a></li>
-                <li class="t"><a href="reportes.html" id="reportes-link"><i class="ti ti-report"></i>Reportes</a></li>
-                <li class="t"><a href="configuracion.html" id="configuracion-link"><i class="ti ti-settings"></i>Configuración</a></li>
+                <li class="t"><a href="estadisticas.php" id="estadisticas-link"><i class="ti ti-chart-bar-popular"></i>Estadísticas</a></li>
+                <li class="t"><a href="reportes.php" id="reportes-link"><i class="ti ti-report"></i>Reportes</a></li>
+                <li class="t"><a href="configuracion.php" id="configuracion-link"><i class="ti ti-settings"></i>Configuración</a></li>
                 <li class="t"><a href="../logout.php" id="cerrar-link"><i class="ti ti-logout"></i>Cerrar Sección</a></li>
             </ul>
         </nav>
@@ -51,10 +55,9 @@
                 <input type="date" name="fecha_ingreso" id="fecha_ingreso" placeholder="Fecha de ingreso" class="campo" style="padding: 10px;" required>
                 <select id="carrera" name="carrera" class="campo" style="padding: 10px;" style="background: red;">
                     <option value="Seleccionar">Seleccionar</option>
-                    <option value="Excel">Excel</option>
-                    <option value="PowerPoint">PowerPoint</option>
-                    <option value="Canvas">Canvas</option>
-                    <option value="Ofimática">Ofimática</option>
+                    <option value="Sistemas">Sistemas</option>
+                    <option value="Telecomunicaciones">Telecomunicaciones</option>
+                  
                 </select>
                 <input type="submit" value="Editar Estudiante" class="campo" style="background: #edcaff; color: rgb(6, 13, 35); ">
             </fieldset>

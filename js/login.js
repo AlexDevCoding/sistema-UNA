@@ -14,7 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             showModal('Inconveniente', data.message);
         } else {
          
-            window.location.href = 'index.html';
+            window.location.href = 'index.php';
         }
     })
     .catch(error => {

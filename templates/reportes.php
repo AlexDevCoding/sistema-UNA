@@ -16,15 +16,15 @@
         </div>
         <nav>
             <ul>
-                <a class="boton-enlace" id="añadir-estudiantes-link" href="agregar-estudiantes.html">Añadir estudiantes</a>
-                <li class="t"><a href="index.html" id="tablero-link"><i class="ti ti-layout-dashboard"></i>Tablero</a></li>
-                <li class="t"><a href="estudiantes.html" id="estudiantes-link"><i class="ti ti-users"></i>Estudiantes</a></li>
-                <li class="t"><a href="calificaciones.html" id="calificaciones-link"><i class="ti ti-certificate"></i>Calificaciones</a></li>
+                <a class="boton-enlace" id="añadir-estudiantes-link" href="agregar-estudiantes.php">Añadir estudiantes</a>
+                <li class="t"><a href="index.php" id="tablero-link"><i class="ti ti-layout-dashboard"></i>Tablero</a></li>
+                <li class="t"><a href="estudiantes.php" id="estudiantes-link"><i class="ti ti-users"></i>Estudiantes</a></li>
+                <li class="t"><a href="calificaciones.php" id="calificaciones-link"><i class="ti ti-certificate"></i>Calificaciones</a></li>
             </ul>
             <ul class="submenu">
-                <li class="t"><a href="estadisticas.html" id="estadisticas-link"><i class="ti ti-chart-bar-popular"></i>Estadísticas</a></li>
-                <li class="t"><a href="reportes.html" id="reportes-link"><i class="ti ti-report"></i>Reportes</a></li>
-                <li class="t"><a href="configuracion.html" id="configuracion-link"><i class="ti ti-settings"></i>Configuración</a></li>
+                <li class="t"><a href="estadisticas.php" id="estadisticas-link"><i class="ti ti-chart-bar-popular"></i>Estadísticas</a></li>
+                <li class="t"><a href="reportes.php" id="reportes-link"><i class="ti ti-report"></i>Reportes</a></li>
+                <li class="t"><a href="configuracion.php" id="configuracion-link"><i class="ti ti-settings"></i>Configuración</a></li>
                 <li class="t"><a href="../logout.php" id="cerrar-link"><i class="ti ti-logout"></i>Cerrar Sección</a></li>
             </ul>
         </nav>
@@ -57,7 +57,7 @@
             <div class="reportes">
                 <div class="texto">
                     <i class="ti ti-school" style="font-size: 30px; color: #9ca3af;"></i>
-                    <h1 class="texto2">Reportes De Calificaciones</h1>
+                    <h1 class="texto2">Reportes De Estudiantes</h1>
                 </div>
                 <select name="reportes-estudiantes" class="reportes-estudiantes">
                     <option value="" selected>Seleccionar Periodo</option>
@@ -87,5 +87,7 @@
     </section>
 
     <script src="../js/index.js"></script>
+    <script src="../js/reportes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>

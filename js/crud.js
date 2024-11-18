@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <td>${row.telefono}</td>
                                 <td>${row.fecha_ingreso}</td>
                                 <td class="activo">
-                                    <a href="editar-estudiantes.html?id=${row.id}"><button class="edit"><i class="ti ti-pencil"></i></button></a>
+                                    <a href="editar-estudiantes.php?id=${row.id}"><button class="edit"><i class="ti ti-pencil"></i></button></a>
                                     <button class="delete" data-id="${row.id}"><i class="ti ti-trash"></i></button>
                                 </td>
                             </tr>`;

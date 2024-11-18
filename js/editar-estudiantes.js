@@ -23,7 +23,16 @@ async function loadStudentData(studentId) {
 function populateForm(student) {
     const fields = ['id', 'cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'carrera'];
     fields.forEach(field => {
-        document.getElementById(field === 'id' ? 'studentId' : field).value = student[field];
+        const element = document.getElementById(field === 'id' ? 'studentId' : field);
+        if (field === 'carrera' && element.tagName === 'SELECT') {
+            // Asegurarse de que la opción existe antes de seleccionarla
+            const option = Array.from(element.options).find(opt => opt.value === student[field]);
+            if (option) {
+                element.value = student[field];
+            }
+        } else {
+            element.value = student[field];
+        }
     });
 }
 
@@ -51,7 +60,7 @@ document.getElementById('editForm').addEventListener('submit', async function(ev
         
         if (data.success) {
             showModal('Éxito', 'Estudiante editado con éxito', 'success', () => {
-                window.location.href = 'estudiantes.html';
+                window.location.href = 'estudiantes.php';
             });
         } else {
             showModal('Error', data.message || 'Error al editar el estudiante', 'error');
@@ -97,4 +106,3 @@ function showModal(title, message, type, callback) {
         if (event.target === modal) closeModal();
     };
 }
-
