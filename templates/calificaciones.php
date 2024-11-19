@@ -46,7 +46,7 @@
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Buscar calificaciones..." class="buscar">
             <i class="search-icon ti ti-search"></i>
-            <a href="https://chatgpt.com/c/673ba8f4-4b8c-800b-aef4-72521d10c6fa" class="calificaciones"> Añadir Calificación</a>
+            <a href="añadir-calificación.php" class="calificaciones"> Añadir Calificación</a>
         </div>
         <table id="dataTable" class="zebra-table">
             <thead>
