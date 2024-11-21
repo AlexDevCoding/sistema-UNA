@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2024 a las 04:22:27
+-- Tiempo de generación: 21-11-2024 a las 02:48:21
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -36,6 +36,23 @@ CREATE TABLE `calificaciones` (
   `estado` enum('Aprobado','Reprobado') DEFAULT 'Aprobado',
   `comentario` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `calificaciones`
+--
+
+INSERT INTO `calificaciones` (`id`, `estudiante_id`, `asignatura`, `semestre`, `calificacion`, `estado`, `comentario`) VALUES
+(1, 2, 'prueba', '5', 12.00, 'Aprobado', ''),
+(2, 4, 'prueba', '2', 9.00, 'Reprobado', ''),
+(3, 6, 'prueba', '6', 10.00, 'Aprobado', ''),
+(4, 7, 'prueba', '2', 15.00, 'Aprobado', ''),
+(5, 7, 'prueba', '7', 4.00, 'Reprobado', ''),
+(6, 8, 'prueba', '7', 7.00, 'Reprobado', ''),
+(7, 9, 'prueba', '7', 7.00, 'Reprobado', ''),
+(8, 12, 'prueba', '4', 8.00, 'Reprobado', ''),
+(9, 12, 'prueba', '4', 7.00, 'Reprobado', ''),
+(10, 9, 'sdasd', '7', 12.00, 'Aprobado', ''),
+(11, 11, 'dsadsad', '4', 12.00, 'Aprobado', '');
 
 -- --------------------------------------------------------
 
@@ -105,7 +122,8 @@ INSERT INTO `estudiantes` (`id`, `cedula`, `nombre`, `apellido`, `carrera`, `tel
 (47, 99123443, 'Estela', 'Rincon', 'Sistemas', '04141234576', '2023-11-30'),
 (48, 9234544, 'Julio', 'Brito', 'Telecomunicaciones', '04241234576', '2023-12-05'),
 (49, 19234545, 'Yesenia', 'Carrillo', 'Sistemas', '04161234576', '2024-01-12'),
-(50, 29234546, 'Marcos', 'Fajardo', 'Telecomunicaciones', '04261234576', '2024-02-17');
+(50, 29234546, 'Marcos', 'Fajardo', 'Telecomunicaciones', '04261234576', '2024-02-17'),
+(51, 12345678, 'sadasd', 'sadasdasd', 'Sistemas', '04145726235', '2024-01-01');
 
 -- --------------------------------------------------------
 
@@ -162,13 +180,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `calificaciones`
 --
 ALTER TABLE `calificaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
