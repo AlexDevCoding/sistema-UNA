@@ -32,51 +32,43 @@
     </aside>
 
     <header class="cabecera">
-
         <nav class="menu">
-
-            
-
+            <!-- ... -->
         </nav>
-
-
     </header>
 
     <section>
-  
+        <form id="formulario-registro" action="../registar-calificación.php" method="POST">
+            <fieldset class="formulario" id="form1">
+                <h3 style="text-align: center; font-size: 25px;">Añadir Calificación</h3>
+                <input type="text" name="cedula" placeholder="Cédula" class="campo" pattern="\d{7,9}" title="La cédula debe contener entre 7 y 9 dígitos" required>
+                <input type="text" name="nombre" placeholder="Nombre" class="campo" required>
+                <input type="text" name="apellido" class="campo" placeholder="Apellido" required>
+                <input type="number" name="calificacion" class="campo" placeholder="Calificación" min="0" max="20" style="padding: 10px;">
+                <input type="text" name="asignatura" class="campo" placeholder="Asignatura" style="padding: 10px; color: #888;" required>
+                <input type="number" name="Semestre" class="campo" placeholder="Semestre" min="0" max="8" style="padding: 10px;">
+                <select id="carrera" name="carrera" class="campo" style="padding: 10px;">
+                    <option value="Seleccionar">Seleccionar</option>
+                    <option value="Sistemas">Sistemas</option>
+                    <option value="Telecomunicaciones">Telecomunicaciones</option>
+                </select>
+                <input type="submit" value="Agregar Calificación" style="background: #edcaff; color: rgb(6, 13, 35);">
+            </fieldset>
+        </form>
+    </section>
 
-    <form id="formulario-registro" action="../registar-calificación.php" method="POST">
-        <fieldset class="formulario" id="form1">
-            <h3 style="text-align: center; font-size: 25px;">Añadir Calificación </h3>
-            <input type="text" name="cedula" placeholder="Cédula" class="campo" pattern="\d{8}" title="la cedula debe contener 8 digitos" required>
-            <input type="text" name="nombre" placeholder="Nombre" class="campo" required>
-            <input type="text" name="apellido" class="campo" placeholder="Apellido" required>
-            <input type="tel" name="telefono" placeholder="Teléfono" class="campo" pattern="\d{10,11}" title="El teléfono debe contener 10 u 11 dígitos" required>
-            <input type="date" name="fecha" class="campo" placeholder="Fecha de ingreso " style="padding: 10px; color: #888;" required>
-            <select id="opciones" name="carrera" placeholder="carrera" style="background: rgb(8 16 40); color: #888; border: 1px solid rgb(52, 59, 79); " required>
-                <option value="Seleccionar">Seleccionar</option>
-                <option value="Excel">Excel</option>
-                <option value="PowerPoint">PowerPoint</option>
-                <option value="Canvas">Canvas</option>
-                <option value="Ofimática">Ofimática</option>
-            </select>
-            <input type="submit" value="Agregar Estudiante"  style="background: #edcaff; color: rgb(6, 13, 35);">
-        </fieldset>
-    </form>
-</section>
-
-
-<div id="modal-registro-exitoso" class="modal">
+    <div id="modal-registro-exitoso" class="modal">
     <div class="modal-contenido">
         <span class="cerrar">&times;</span>
         <p></p>
     </div>
 </div>
-<footer>
+    <footer>
+        <p>Desarrollado Por&nbsp; <a href="https://github.com/AlexDevCoding" class="items" target="_blank" rel="noopener noreferrer">AlexDevCoding.</a>&nbsp; © 2024.</p>
+        <a class="git-hub ti ti-brand-github" href="https://github.com/Josue547" target="_blank" rel="noopener noreferrer"></a>
+    </footer>
 
-    <p>Desarrollado Por&nbsp; <a href="https://github.com/AlexDevCoding" class="items" target="_blank" rel="noopener noreferrer">AlexDevCoding.</a>&nbsp; © 2024.</p>   <a class="git-hub ti ti-brand-github" href="https://github.com/Josue547" target="_blank" rel="noopener noreferrer"></a>
-</footer>
-<script src="../js/agregar-estudiantes.js"></script>
-
+    <script src="../js/agregar-calificación.js"></script>
+    <script src="../js/obtener-estudiantes.js"></script>
 </body>
 </html>

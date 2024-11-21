@@ -52,12 +52,13 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Estudiante ID</th>
+                    <th>Nombre </th>
+                    <th>Apellido </th>
                     <th>Asignatura</th>
                     <th>Semestre</th>
                     <th>Calificación</th>
-                    <th>Estado</th>
-                    <th>Comentario</th>
+                    <th>Acciones</th>
+                    
                 </tr>
             </thead>
             <tbody id="dataTableBody">
@@ -65,11 +66,12 @@
                 <?php include('../obtener-calificaciones.php'); ?>
             </tbody>
         </table>
-        <div id="pagination"></div>
+       
     </div>
 </section>
 
     <script src="../js/index.js"></script>
     <script src="../js/calificaciones.js"></script>
+    <script src="../js/paginacion.js"></script>
 </body>
 </html>

@@ -53,12 +53,10 @@
             <input type="text" name="apellido" class="campo" placeholder="Apellido" required>
             <input type="tel" name="telefono" placeholder="Teléfono" class="campo" pattern="\d{10,11}" title="El teléfono debe contener 10 u 11 dígitos" required>
             <input type="date" name="fecha" class="campo" placeholder="Fecha de ingreso " style="padding: 10px; color: #888;" required>
-            <select id="opciones" name="carrera" placeholder="carrera" style="background: rgb(8 16 40); color: #888; border: 1px solid rgb(52, 59, 79); " required>
-                <option value="Seleccionar">Seleccionar</option>
-                <option value="Excel">Excel</option>
-                <option value="PowerPoint">PowerPoint</option>
-                <option value="Canvas">Canvas</option>
-                <option value="Ofimática">Ofimática</option>
+            <select id="carrera" name="carrera" class="campo" style="padding: 10px;" style="background: red;">
+                    <option value="Seleccionar">Seleccionar</option>
+                    <option value="Sistemas">Sistemas</option>
+                    <option value="Telecomunicaciones">Telecomunicaciones</option>
             </select>
             <input type="submit" value="Agregar Estudiante"  style="background: #edcaff; color: rgb(6, 13, 35);">
         </fieldset>
