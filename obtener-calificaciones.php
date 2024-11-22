@@ -1,58 +1,58 @@
 <?php
-include('auth/autenticación.php');
 include('config.php');
 
 $limit = 10;
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+if ($page < 1) {
+    $page = 1;
+}
 $offset = ($page - 1) * $limit;
 
-$query = "SELECT calificaciones.id, calificaciones.estudiante_id, calificaciones.asignatura, calificaciones.semestre, calificaciones.calificacion, estudiantes.nombre, estudiantes.apellido 
-          FROM calificaciones 
-          JOIN estudiantes ON calificaciones.estudiante_id = estudiantes.id 
-          LIMIT $limit OFFSET $offset";
+// Obtener término de búsqueda si existe
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+$searchTerm = "%$search%";
 
-$result = $conn->query($query);
+// Ajustar consulta para incluir búsqueda
+$query = $conn->prepare("
+    SELECT calificaciones.id, calificaciones.estudiante_id, calificaciones.asignatura, calificaciones.semestre, calificaciones.calificacion, estudiantes.nombre, estudiantes.apellido 
+    FROM calificaciones 
+    JOIN estudiantes ON calificaciones.estudiante_id = estudiantes.id 
+    WHERE estudiantes.nombre LIKE ? OR estudiantes.apellido LIKE ? OR calificaciones.asignatura LIKE ?
+    LIMIT ? OFFSET ?");
+$query->bind_param("sssii", $searchTerm, $searchTerm, $searchTerm, $limit, $offset);
+$result = $query->execute();
+$result = $query->get_result();
 
-$totalQuery = "SELECT COUNT(*) AS total FROM calificaciones";
-$totalResult = $conn->query($totalQuery);
+if (!$result) {
+    echo json_encode(['error' => 'Error en la consulta a la base de datos.']);
+    exit;
+}
+
+// Calcular total de registros con el término de búsqueda
+$totalQuery = $conn->prepare("
+    SELECT COUNT(*) AS total 
+    FROM calificaciones 
+    JOIN estudiantes ON calificaciones.estudiante_id = estudiantes.id 
+    WHERE estudiantes.nombre LIKE ? OR estudiantes.apellido LIKE ? OR calificaciones.asignatura LIKE ?");
+$totalQuery->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
+$totalQuery->execute();
+$totalResult = $totalQuery->get_result();
 $totalRow = $totalResult->fetch_assoc();
 $totalRecords = $totalRow['total'];
 $totalPages = ceil($totalRecords / $limit);
 
+// Procesar resultados
+$data = [];
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['id'] . "</td>";
-        echo "<td>" . $row['nombre'] . "</td>";
-        echo "<td>" . $row['apellido'] . "</td>";
-        echo "<td>" . $row['asignatura'] . "</td>";
-        echo "<td>" . $row['semestre'] . "</td>";
-        echo "<td>" . $row['calificacion'] . "</td>";
-        echo "<td class='activo' id='ad'>";
-        echo "<a href='editar-calificacion.php?id=" . $row['id'] . "'><button class='edit'><i class='ti ti-pencil'></i></button></a>";
-        echo "<button class='delete' data-id='" . $row['id'] . "'><i class='ti ti-trash'></i></button>";
-        echo "</td>";
-        echo "</tr>";
+        $data[] = $row;
     }
-} else {
-    echo "<tr><td colspan='7'>No hay datos disponibles</td></tr>";
 }
 
-echo "</table>";
-echo "<div id='pagination'>";
-$buttonsToShow = 2;
-$startPage = max(1, $page - $buttonsToShow);
-$endPage = min($totalPages, $page + $buttonsToShow);
-
-for ($i = $startPage; $i <= $endPage; $i++) {
-    echo "<button class='page-button' data-page='$i' onclick='cargarPagina($i)'>$i</button>";
-}
-echo "</div>";
-
+// Responder en formato JSON
+echo json_encode([
+    'data' => $data,
+    'totalPages' => $totalPages,
+    'currentPage' => $page,
+]);
 ?>
-
-
-<script>
-
-</script>
-
