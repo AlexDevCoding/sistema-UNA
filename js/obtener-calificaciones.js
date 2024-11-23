@@ -6,17 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
     const recordsPerPage = 10;
 
-    // Función para cargar calificaciones dinámicamente
     function cargarCalificaciones(page = 1, search = '') {
         fetch(`../obtener-calificaciones.php?page=${page}&search=${search}`)
             .then(response => response.json())
             .then(data => {
                 const { data: calificaciones, totalPages } = data;
-
-                // Limpiar la tabla antes de insertar datos
                 tabla.innerHTML = '';
 
-                // Verificar si hay datos
                 if (calificaciones && calificaciones.length > 0) {
                     calificaciones.forEach(calificacion => {
                         const row = `
@@ -42,13 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     tabla.innerHTML = '<tr><td colspan="7">No hay datos disponibles</td></tr>';
                 }
 
-                // Actualizar paginación
                 actualizarPaginacion(totalPages, page);
             })
             .catch(error => console.error('Error al cargar las calificaciones:', error));
     }
 
-    // Función para actualizar la paginación
     function actualizarPaginacion(totalPages, currentPage) {
         paginacion.innerHTML = '';
         for (let i = 1; i <= totalPages; i++) {
@@ -59,9 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Escuchar eventos de búsqueda
     searchInput.addEventListener('input', () => cargarCalificaciones(1, searchInput.value));
-
-    // Cargar datos iniciales
     cargarCalificaciones(currentPage);
 });
