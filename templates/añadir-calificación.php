@@ -48,7 +48,7 @@
                 <input type="text" name="asignatura" class="campo" placeholder="Asignatura" style="padding: 10px; color: #888;" required>
                 <input type="number" name="Semestre" class="campo" placeholder="Semestre" min="0" max="8" style="padding: 10px;">
                 <input type="text" id="carrera" name="carrera" class="campo" placeholder="Carrera" style="padding: 10px; color: #888;">
-                  
+             
                 <input type="submit" value="Agregar Calificación" style="background: #edcaff; color: rgb(6, 13, 35);">
             </fieldset>
         </form>

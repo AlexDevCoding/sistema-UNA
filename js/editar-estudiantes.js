@@ -25,7 +25,7 @@ function populateForm(student) {
     fields.forEach(field => {
         const element = document.getElementById(field === 'id' ? 'studentId' : field);
         if (field === 'carrera' && element.tagName === 'SELECT') {
-            // Asegurarse de que la opción existe antes de seleccionarla
+            // Ensure that the option exists before selecting it
             const option = Array.from(element.options).find(opt => opt.value === student[field]);
             if (option) {
                 element.value = student[field];
@@ -39,7 +39,7 @@ function populateForm(student) {
 function storeOriginalData(student) {
     const originalData = document.getElementById('originalData');
     ['cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'carrera'].forEach(field => {
-        originalData.dataset[`original${field.charAt(0).toUpperCase() + field.slice(1)}`] = student[field];
+        originalData.dataset[`original${capitalizeFirstLetter(field)}`] = student[field];
     });
 }
 
@@ -75,8 +75,12 @@ function hasChanges() {
     const originalData = document.getElementById('originalData').dataset;
     const fields = ['cedula', 'nombre', 'apellido', 'telefono', 'fecha_ingreso', 'carrera'];
     return fields.some(field => 
-        document.getElementById(field).value !== originalData[`original${field.charAt(0).toUpperCase() + field.slice(1)}`]
+        document.getElementById(field).value !== originalData[`original${capitalizeFirstLetter(field)}`]
     );
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function showModal(title, message, type, callback) {

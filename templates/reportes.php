@@ -41,18 +41,6 @@
     <section id="content"> 
         <div class="estadisticas-mayor">
 
-            <div class="reportes">
-                <div class="texto">
-                    <i class="ti ti-school" style="font-size: 30px; color: #9ca3af;"></i>
-                    <h1 class="texto2">Reportes De Calificaciones</h1>
-                </div>
-                <select name="reportes-estudiantes" class="reportes-estudiantes">
-                    <option value="" selected>Seleccionar Periodo</option>
-                    <option value="Diario">Diario</option>
-                    <option value="Mensual">Mensual</option>
-                </select>
-                <button type="button" class="btn-generar">Generar Reporte</button>
-            </div>
         
             <div class="reportes">
                 <div class="texto">
@@ -64,7 +52,7 @@
                     <option value="Diario">Diario</option>
                     <option value="Mensual">Mensual</option>
                 </select>
-                <button type="button" class="btn-generar">Generar Reporte</button>
+                <button type="button" class="btn-generar" id="generar-reporte-estudiantes">Generar Reporte</button>
             </div>
         
             <div class="reportes">
@@ -72,12 +60,12 @@
                     <i class="ti ti-school" style="font-size: 30px; color: #9ca3af;"></i>
                     <h1 class="texto2">Reportes De Calificaciones</h1>
                 </div>
-                <select name="reportes-estudiantes" class="reportes-estudiantes">
+                <select name="reportes-calificaciones" class="reportes-estudiantes">
                     <option value="" selected>Seleccionar Periodo</option>
                     <option value="Diario">Diario</option>
                     <option value="Mensual">Mensual</option>
                 </select>
-                <button type="button" class="btn-generar">Generar Reporte</button>
+                <button type="button" class="btn-generar" id="generar-reporte-calificaciones">Generar Reporte</button>
             </div>
         
         </div>

@@ -441,7 +441,17 @@ input:-webkit-autofill {
 input {
     color: #888;
 }
+/* ... código existente ... */
 
+select {
+    height: 40px; /* Altura similar a los inputs */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid rgb(52, 59, 79); /* Borde similar a los inputs */
+    background: rgb(8 16 40); /* Fondo similar a los inputs */
+    color: #888; /* Color del texto */
+}
+
+/* ... código existente ... */
 #carrera {
     background: rgb(8 16 40); 
     color: #888; 
